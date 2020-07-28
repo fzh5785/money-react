@@ -8,10 +8,10 @@ try{
   console.log(error);
 }
 
-type  X = {
+type  Props = {
   name: string
 }
-const Icon = (props: X) => {
+const Icon = (props: Props) => {
   return (
     <svg className='icon'>
       <use xlinkHref={'#' + props.name}/>
