@@ -1,32 +1,33 @@
 import React from 'react';
-import {Wrapper} from  './NumberPadSection/Wrapper'
+import {Wrapper} from './NumberPadSection/Wrapper';
 import {computerOutput} from './NumberPadSection/computerOutput';
-
 
 
 type Props = {
   value: number
-  onChange: (value: number)=> void
-  onOK?: ()=>void
+  onChange: (value: number) => void
+  onOK?: () => void
 }
 const NumberPadSection: React.FC<Props> = (props) => {
-  const output = props.value.toString()
+  const output = props.value.toString();
   const setOutput = (output: string) => {
-    let value
+    let value;
     if (output.length > 16) {
       value = parseFloat(output.slice(0, 16));
     } else if (output.length === 0) {
       value = 0;
-    }else{
-      value = parseFloat(output)
+    } else {
+      value = parseFloat(output);
     }
     props.onChange(value);
   };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
     const text = (e.target as HTMLButtonElement).textContent;
     if (text === null) {return;}
-    if(text === 'OK'){return;}
-    setOutput(computerOutput(text,output))
+    if (text === 'OK') {
+      if (props.onOK) {props.onOK();}
+    }
+    setOutput(computerOutput(text, output));
   };
   return (
     <Wrapper>

@@ -28,6 +28,7 @@ const NoteSection: React.FC<Props> = (props)=> {
       props.onChange(refInput.current.value)
     }
   }
+
   return (
     <Wrapper>
     <label>
