@@ -1,4 +1,4 @@
-const computerOutput = (text: string, output='0') => {
+const computerOutput = (text: string, output = '0') => {
   switch (text) {
     case '0' :
     case '1' :
