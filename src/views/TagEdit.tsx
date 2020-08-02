@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import Icon from '../components/Icon';
 import styled from 'styled-components';
 import {Button} from '../components/Button';
+import {Input} from '../components/Input';
 
 
 const Header = styled.header`
@@ -18,6 +19,17 @@ const Header = styled.header`
     width: 24px;
     height: 24px;
   }
+`;
+const InputWrapper = styled.div`
+  background:#fff;
+  margin-top: 16px;
+  padding: 0 16px;
+`
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 `;
 type Params = {
   id: string
@@ -33,13 +45,12 @@ const TagEdit: React.FC = () => {
         <span>编辑标签</span>
         <Icon/>
       </Header>
-      <div>
-        <label>
-          <span>标签名</span>
-          <input type="text"/>
-        </label>
-      </div>
+      <InputWrapper>
+        <Input label='标签名' type='text' value={tag.name}/>
+      </InputWrapper>
+      <Center>
       <Button>删除标签</Button>
+      </Center>
     </Layout>
   );
 };

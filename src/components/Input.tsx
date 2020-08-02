@@ -7,7 +7,7 @@ const Label = styled.label`
   >span { margin-right: 16px}
   >input {
       flex-grow: 1;
-      height: 72px;
+      height: 44px;
       background:none;
       border: none;
     }
