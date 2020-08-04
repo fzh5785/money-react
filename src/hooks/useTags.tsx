@@ -11,7 +11,8 @@ const useTags = () => {  //封装自定义 Hook
         {id: createId(), name: '衣'},
         {id: createId(), name: '食'},
         {id: createId(), name: '住'},
-        {id: createId(), name: '行'}
+        {id: createId(), name: '行'},
+        {id: createId(), name: '其他'}
       ];
     }
     setTags(localTags);
@@ -41,6 +42,7 @@ const useTags = () => {  //封装自定义 Hook
   };
   const deleteTag = (id: number) => {
     setTags(tags.filter(tag => tag.id !== id));
+    window.history.back()
   };
   const getName = (id: number) => {
     const tag = tags.filter(t => t.id === id)[0];

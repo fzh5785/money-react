@@ -26,7 +26,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
     const text = (e.target as HTMLButtonElement).textContent;
     if (text === null) {return;}
     if (text === 'OK') {
-      if (props.onOK) {props.onOK();}
+      if (props.onOK) {props.onOK();_setOutput('0')}
     }
     if ('0123456789.'.split('').concat(['删除', '清空']).indexOf(text) >= 0) {
       setOutput(computerOutput(text, output));
