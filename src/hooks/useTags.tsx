@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import {createId} from '../lib/createId';
 import {useUpdate} from './useUpdate';
+import day from 'dayjs';
 
 const useTags = () => {  //封装自定义 Hook
   const [tags, setTags] = useState<{ id: number, name: string }[]>([]);
@@ -42,7 +43,11 @@ const useTags = () => {  //封装自定义 Hook
   const deleteTag = (id: number) => {
     setTags(tags.filter(tag => tag.id !== id));
   };
-  return {tags, addTag, setTags, findTag, findTagIndex, updateTag, deleteTag};
+  const getName = (id: number) => {
+    const tag = tags.filter(t => t.id === id)[0];
+    return tag ? tag.name : '';
+  };
+  return {tags, getName, addTag, setTags, findTag, findTagIndex, updateTag, deleteTag};
 };
 
 export {useTags};
