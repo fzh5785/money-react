@@ -1,0 +1,28 @@
+import {useEffect, useState} from 'react';
+import {useUpdate} from './useUpdate';
+
+type RecordsList = {
+  tagIds: number[]
+  note: string
+  category: '+' | '-'
+  amount: number
+  createdAt: string // ISO 8601
+}
+type newRecordsList = Omit<RecordsList, 'createdAt'> // 不要createdAt
+
+const useRecords = () => {
+  const [records, setRecords] = useState<RecordsList[]>([]);
+  useEffect(() => {
+    setRecords(JSON.parse(window.localStorage.getItem('records') || '[]'));
+  }, []);
+  useUpdate(() => {
+    window.localStorage.setItem('records', JSON.stringify(records));
+  }, [records]);
+  const addRecord = (newRecord: newRecordsList) => {
+    const record = {...newRecord, createdAt: (new Date()).toISOString()};
+    setRecords([...records, record]);
+  };
+  return {records, addRecord};
+};
+
+export {useRecords};
