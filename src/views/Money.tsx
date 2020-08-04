@@ -5,7 +5,7 @@ import {TagsSection} from '../components/Money/TagsSection';
 import {NoteSection} from '../components/Money/NoteSection';
 import {CategorySection} from '../components/Money/CategorySection';
 import {NumberPadSection} from '../components/Money/NumberSection';
-import {useRecords} from '../hooks/usrRecords';
+import {useRecords} from '../hooks/useRecords';
 
 const CategoryWrapper = styled.div`
   background:#c4c4c4;
